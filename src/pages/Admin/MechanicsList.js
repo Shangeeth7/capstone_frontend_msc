@@ -13,11 +13,14 @@ function MechanicsList() {
   const getMechanicsData = async () => {
     try {
       dispatch(showLoading());
-      const resposne = await axios.get("/api/admin/get-all-mechanics", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      const resposne = await axios.get(
+        "https://motorcycle-servicing-company.herokuapp.com/api/admin/get-all-mechanics",
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
       dispatch(hideLoading());
       if (resposne.data.success) {
         setMechanics(resposne.data.data);
