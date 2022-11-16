@@ -86,7 +86,7 @@ function ResetPassword() {
           <br />
 
           <div className="flex justify-between items-end">
-            {password === confirmpassword && password.length > 5 ? (
+            {password === confirmpassword && confirmpassword.length > 5 ? (
               <Button
                 className="buttonss my-2 full-width-button"
                 onClick={resetPassword}
