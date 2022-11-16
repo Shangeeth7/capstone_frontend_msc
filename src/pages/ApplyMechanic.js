@@ -16,7 +16,7 @@ function ApplyMechanic() {
     try {
       dispatch(showLoading());
       const response = await axios.post(
-        "https://motorcycle-servicing-company.herokuapp.com/api/user/apply-mechanic-account",
+        "/api/user/apply-mechanic-account",
         {
           ...values,
           userId: user._id,

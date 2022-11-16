@@ -18,7 +18,7 @@ function Profile() {
     try {
       dispatch(showLoading());
       const response = await axios.post(
-        "https://motorcycle-servicing-company.herokuapp.com/api/mechanic/update-mechanic-profile",
+        "/api/mechanic/update-mechanic-profile",
         {
           ...values,
           userId: user._id,
@@ -50,7 +50,7 @@ function Profile() {
     try {
       dispatch(showLoading());
       const response = await axios.post(
-        "https://motorcycle-servicing-company.herokuapp.com/api/mechanic/get-mechanic-info-by-user-id",
+        "/api/mechanic/get-mechanic-info-by-user-id",
         {
           userId: params.userId,
         },

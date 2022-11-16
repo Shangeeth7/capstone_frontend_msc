@@ -16,13 +16,10 @@ function ResetPassword() {
     }
     try {
       toast.loading();
-      const response = await axios.post(
-        "https://motorcycle-servicing-company.herokuapp.com/api/user/resetpassword",
-        {
-          password,
-          token: params.token,
-        }
-      );
+      const response = await axios.post("/api/user/resetpassword", {
+        password,
+        token: params.token,
+      });
       if (response.data.success && password.length > 5) {
         toast.success(response.data.message);
         navigate("/login");
