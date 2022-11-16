@@ -13,28 +13,26 @@ function ResetPassword() {
   const navigate = useNavigate();
   const resetPassword = async () => {
     if (password.length > 5) {
-      try {
-        toast.loading();
-        const response = await axios.post(
-          "https://motorcycle-servicing-company.herokuapp.com/api/user/resetpassword",
-          {
-            password,
-            token: params.token,
-          }
-        );
-        if (response.data.success) {
-          toast.success(response.data.message);
-          navigate("/login");
-        } else {
-          toast.error("Expired or Invalid Link");
+    }
+    try {
+      toast.loading();
+      const response = await axios.post(
+        "https://motorcycle-servicing-company.herokuapp.com/api/user/resetpassword",
+        {
+          password,
+          token: params.token,
         }
-        toast.dismiss();
-      } catch (error) {
-        toast.dismiss();
-        toast.error("Something went wrong");
+      );
+      if (response.data.success && password.length > 5) {
+        toast.success(response.data.message);
+        navigate("/login");
+      } else {
+        toast.error("Expired or Invalid Link");
       }
-    } else {
-      toast.error("Password should contain minimum 6 characters");
+      toast.dismiss();
+    } catch (error) {
+      toast.dismiss();
+      toast.error("Something went wrong");
     }
   };
 
