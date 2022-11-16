@@ -34,7 +34,7 @@ function MechanicsList() {
     try {
       dispatch(showLoading());
       const resposne = await axios.post(
-        "/api/admin/change-mechanic-account-status",
+        "https://motorcycle-servicing-company.herokuapp.com/api/admin/change-mechanic-account-status",
         { mechanicId: record._id, userId: record.userId, status: status },
         {
           headers: {
